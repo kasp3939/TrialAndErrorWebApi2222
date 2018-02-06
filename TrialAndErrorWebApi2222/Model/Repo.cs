@@ -54,7 +54,7 @@ namespace TrialAndErrorWebApi2222.Model
             return listOfFlights.ToList();
         }
 
-        public string ChangeFlight(int _flightNumber, string fromLocation, string toLocation)
+        public static string ChangeFlight(int _flightNumber, string fromLocation, string toLocation)
         {
             string message = "";
             Flight flight = GetById(_flightNumber);

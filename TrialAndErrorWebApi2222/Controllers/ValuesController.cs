@@ -23,20 +23,9 @@ namespace TrialAndErrorWebApi2222.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void ChangeFlight(int _flightNumber, string fromLocation, string toLocation)
         {
-        }
-
-        // PUT api/values/
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            Repo.ChangeFlight(_flightNumber, fromLocation, toLocation);
         }
     }
 }
