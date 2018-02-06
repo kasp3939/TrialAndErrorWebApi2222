@@ -1,26 +1,24 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+using TrialAndErrorWebApi2222.Model;
 
 namespace TrialAndErrorWebApi2222.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
-    {
+    {        
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Flight> Get()
         {
-            return new string[] { "value1", "value2" };
+            return Repo.GetAllFlights();            
         }
 
-        // GET api/values/5
+        // GET api/values/1
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult GetByIdet(int id)
         {
-            return "value";
+            return Ok(Repo.GetById(id));
         }
 
         // POST api/values
@@ -29,13 +27,13 @@ namespace TrialAndErrorWebApi2222.Controllers
         {
         }
 
-        // PUT api/values/5
+        // PUT api/values/
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE api/values/5
+        // DELETE api/values/
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
